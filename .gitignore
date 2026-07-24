@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Vite cache
+.vite/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Local settings
+*.local
+
+# TypeScript build info
+*.tsbuildinfo
+
+# PWA generated files
+workbox-*.js
+sw.js
+service-worker.js
+
+# Tailwind / PostCSS cache
+.cache/
+
+# Optional: screenshots and generated assets
+*.png
+*.jpg
+*.jpeg

@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f5f9;
+  --color-border: #dbe3ee;
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+  --color-brand: #1f6feb;
+  --color-brand-hover: #1857b8;
+  --color-brand-soft: #e8f1ff;
+  --color-success: #1f9d68;
+  --color-warning: #d97706;
+  --color-danger: #d14343;
+  --color-info: #2563eb;
+}
+
+.dark {
+  --color-bg: #0b1220;
+  --color-surface: #111827;
+  --color-surface-muted: #0f172a;
+  --color-border: #243244;
+  --color-text: #e5eefb;
+  --color-text-muted: #94a3b8;
+  --color-brand: #60a5fa;
+  --color-brand-hover: #93c5fd;
+  --color-brand-soft: #10233f;
+  --color-success: #34d399;
+  --color-warning: #f59e0b;
+  --color-danger: #f87171;
+  --color-info: #60a5fa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: Inter, 'Segoe UI', Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main,
+section,
+header,
+footer {
+  contain: content;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-enter-to,
+.page-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-up {
+  animation: fade-up 520ms ease both;
+}
+
+.stagger-1 { animation-delay: 60ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 180ms; }
+.stagger-4 { animation-delay: 240ms; }
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .fade-up,
+  .card-hover,
+  .page-enter-active,
+  .page-leave-active,
+  button,
+  a {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.card-hover {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  border-color: var(--color-brand);
+}
+
+button,
+a {
+  transition: all 180ms ease;
+}
