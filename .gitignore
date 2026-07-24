@@ -57,3 +57,8 @@ service-worker.js
 *.png
 *.jpg
 *.jpeg
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
