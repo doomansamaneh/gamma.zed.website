@@ -54,6 +54,6 @@ service-worker.js
 .cache/
 
 # Optional: screenshots and generated assets
-*.png
-*.jpg
-*.jpeg
+# *.png
+# *.jpg
+# *.jpeg
