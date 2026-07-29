@@ -2,86 +2,339 @@
 withDefaults(defineProps<{
   title?: string
   subtitle?: string
-  variant?: 'overview' | 'operations'
+  workOrders?: string
+  alerts?: string
+  health?: string
+  assets?: string
 }>(), {
-  title: 'Operational Dashboard',
-  subtitle: 'Live enterprise visibility',
-  variant: 'overview',
+  title: 'داشبورد عملیات دارایی',
+  subtitle: 'نمای لحظه‌ای وضعیت تجهیزات و عملیات نگهداری',
+  workOrders: 'دستور کارها',
+  alerts: 'هشدارها',
+  health: 'دسترسی‌پذیری',
+  assets: 'داراییها'
 })
 </script>
 
+
 <template>
-  <div class="rounded-xl border border-border bg-surface p-3 shadow-sm">
-    <div class="mb-3 flex items-center justify-between">
+  <div class="rounded-xl border border-border bg-surface p-4 shadow-sm">
+
+    <!-- Header -->
+    <div class="mb-4 flex items-center justify-between">
       <div>
-        <h3 class="text-sm font-semibold text-text">{{ title }}</h3>
-        <p class="text-xs text-text-muted">{{ subtitle }}</p>
+        <h3 class="text-sm font-semibold text-text">
+          {{ title }}
+        </h3>
+
+        <p class="text-xs text-text-muted">
+          {{ subtitle }}
+        </p>
       </div>
-      <span class="rounded-full bg-success/15 px-2 py-1 text-[10px] font-semibold text-success">Live</span>
+
+      <div
+        class="flex items-center gap-2 rounded-full bg-success/10 px-3 py-1"
+      >
+        <span class="h-2 w-2 rounded-full bg-success" />
+        <span class="text-xs font-medium text-success">
+          Live
+        </span>
+      </div>
     </div>
 
-    <svg viewBox="0 0 760 420" class="h-auto w-full rounded-lg bg-surface-muted" role="img" aria-label="Enterprise dashboard mockup illustration">
+
+    <!-- Dashboard Illustration -->
+
+    <svg
+      viewBox="0 0 760 420"
+      class="w-full rounded-xl bg-surface-muted"
+    >
+
       <defs>
-        <linearGradient id="panelGrad" x1="0" x2="1">
-          <stop offset="0%" stop-color="#dbeafe" />
-          <stop offset="100%" stop-color="#eff6ff" />
+
+        <linearGradient id="cardBlue">
+          <stop offset="0%" stop-color="#EFF6FF"/>
+          <stop offset="100%" stop-color="#DBEAFE"/>
         </linearGradient>
-        <linearGradient id="chartGrad" x1="0" x2="1">
-          <stop offset="0%" stop-color="#2563eb" />
-          <stop offset="100%" stop-color="#60a5fa" />
+
+        <linearGradient id="lineBlue">
+          <stop offset="0%" stop-color="#0B84F3"/>
+          <stop offset="100%" stop-color="#60A5FA"/>
         </linearGradient>
+
       </defs>
 
-      <rect x="0" y="0" width="760" height="420" fill="#f8fafc" rx="16" />
 
-      <rect x="20" y="20" width="140" height="380" rx="14" fill="#0f172a" />
-      <text x="40" y="60" fill="#e5eefb" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="700">ZED Core</text>
-      <rect x="40" y="94" width="100" height="26" rx="8" fill="#1f6feb" />
-      <text x="62" y="112" fill="#ffffff" font-size="12" font-family="Segoe UI, Arial, sans-serif">Dashboard</text>
-      <text x="40" y="155" fill="#94a3b8" font-size="11" font-family="Segoe UI, Arial, sans-serif">Operations</text>
-      <text x="40" y="184" fill="#94a3b8" font-size="11" font-family="Segoe UI, Arial, sans-serif">Assets</text>
-      <text x="40" y="213" fill="#94a3b8" font-size="11" font-family="Segoe UI, Arial, sans-serif">Workflow</text>
-      <text x="40" y="242" fill="#94a3b8" font-size="11" font-family="Segoe UI, Arial, sans-serif">Inventory</text>
+      <!-- Background -->
 
-      <rect x="182" y="28" width="552" height="60" rx="14" fill="#ffffff" stroke="#dbe3ee" />
-      <text x="208" y="56" fill="#0f172a" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Enterprise operations overview</text>
-      <text x="208" y="74" fill="#64748b" font-size="11" font-family="Segoe UI, Arial, sans-serif">Asset health • Work order throughput • Inventory confidence</text>
+      <rect
+        width="760"
+        height="420"
+        rx="18"
+        fill="#F5F7FA"
+      />
 
-      <rect x="182" y="104" width="170" height="78" rx="14" fill="url(#panelGrad)" />
-      <text x="198" y="132" fill="#334155" font-size="12" font-family="Segoe UI, Arial, sans-serif">Assets online</text>
-      <text x="198" y="160" fill="#0f172a" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="700">12,480</text>
 
-      <rect x="365" y="104" width="170" height="78" rx="14" fill="#ffffff" stroke="#dbe3ee" />
-      <text x="381" y="132" fill="#334155" font-size="12" font-family="Segoe UI, Arial, sans-serif">Maintenance SLA</text>
-      <text x="381" y="160" fill="#0f172a" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="700">94.2%</text>
+      <!-- KPI cards -->
 
-      <rect x="548" y="104" width="186" height="78" rx="14" fill="#ffffff" stroke="#dbe3ee" />
-      <text x="564" y="132" fill="#334155" font-size="12" font-family="Segoe UI, Arial, sans-serif">Workflow backlog</text>
-      <text x="564" y="160" fill="#0f172a" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="700">18 open</text>
+      <g>
 
-      <rect x="182" y="196" width="360" height="198" rx="14" fill="#ffffff" stroke="#dbe3ee" />
-      <text x="198" y="222" fill="#0f172a" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Operational activity</text>
+        <!-- Card 1 -->
+        <rect
+          x="25"
+          y="25"
+          width="165"
+          height="90"
+          rx="14"
+          fill="url(#cardBlue)"
+        />
 
-      <path d="M208 346 C238 320, 260 285, 286 280 S340 282, 370 250 S432 230, 468 252 S520 284, 532 260" fill="none" stroke="url(#chartGrad)" stroke-width="5" stroke-linecap="round" />
-      <path d="M208 346 C238 320, 260 285, 286 280 S340 282, 370 250 S432 230, 468 252 S520 284, 532 260" fill="none" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 6" opacity="0.7" />
+        <rect
+          x="210"
+          y="25"
+          width="165"
+          height="90"
+          rx="14"
+          fill="#FFFFFF"
+          stroke="#E2E8F0"
+        />
 
-      <circle cx="286" cy="280" r="5" fill="#1f6feb" />
-      <circle cx="370" cy="250" r="5" fill="#1f6feb" />
-      <circle cx="468" cy="252" r="5" fill="#1f6feb" />
-      <circle cx="532" cy="260" r="5" fill="#1f6feb" />
 
-      <rect x="562" y="196" width="172" height="198" rx="14" fill="#ffffff" stroke="#dbe3ee" />
-      <text x="578" y="222" fill="#0f172a" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Priority queue</text>
+        <rect
+          x="395"
+          y="25"
+          width="165"
+          height="90"
+          rx="14"
+          fill="#FFFFFF"
+          stroke="#E2E8F0"
+        />
 
-      <rect x="578" y="238" width="132" height="18" rx="9" fill="#dbeafe" />
-      <rect x="578" y="266" width="120" height="18" rx="9" fill="#e2e8f0" />
-      <rect x="578" y="294" width="88" height="18" rx="9" fill="#d1fae5" />
-      <rect x="578" y="322" width="108" height="18" rx="9" fill="#fef3c7" />
 
-      <text x="592" y="251" fill="#1f6feb" font-size="10" font-family="Segoe UI, Arial, sans-serif">Work orders: 42</text>
-      <text x="592" y="279" fill="#475569" font-size="10" font-family="Segoe UI, Arial, sans-serif">Inventory alerts: 8</text>
-      <text x="592" y="307" fill="#047857" font-size="10" font-family="Segoe UI, Arial, sans-serif">Approved: 16</text>
-      <text x="592" y="335" fill="#b45309" font-size="10" font-family="Segoe UI, Arial, sans-serif">Escalations: 3</text>
+        <rect
+          x="580"
+          y="25"
+          width="155"
+          height="90"
+          rx="14"
+          fill="#FFFFFF"
+          stroke="#E2E8F0"
+        />
+
+
+        <!-- fake numbers -->
+
+        <rect
+          x="45"
+          y="65"
+          width="80"
+          height="16"
+          rx="8"
+          fill="#17263C"
+        />
+
+        <rect
+          x="230"
+          y="65"
+          width="70"
+          height="16"
+          rx="8"
+          fill="#16A34A"
+        />
+
+        <rect
+          x="415"
+          y="65"
+          width="65"
+          height="16"
+          rx="8"
+          fill="#2563EB"
+        />
+
+        <rect
+          x="600"
+          y="65"
+          width="50"
+          height="16"
+          rx="8"
+          fill="#DC2626"
+        />
+
+      </g>
+
+
+
+      <!-- Chart -->
+
+      <rect
+        x="25"
+        y="145"
+        width="430"
+        height="245"
+        rx="16"
+        fill="#FFFFFF"
+        stroke="#E2E8F0"
+      />
+
+
+      <!-- chart header -->
+
+      <rect
+        x="50"
+        y="175"
+        width="120"
+        height="10"
+        rx="5"
+        fill="#CBD5E1"
+      />
+
+
+      <!-- chart line -->
+
+      <path
+        d="
+          M60 320
+          C120 280
+          170 300
+          220 255
+          S330 220
+          410 260
+        "
+        fill="none"
+        stroke="url(#lineBlue)"
+        stroke-width="5"
+        stroke-linecap="round"
+      />
+
+
+      <circle
+        cx="220"
+        cy="255"
+        r="6"
+        fill="#0B84F3"
+      />
+
+      <circle
+        cx="410"
+        cy="260"
+        r="6"
+        fill="#0B84F3"
+      />
+
+
+
+
+      <!-- Activity panel -->
+
+      <rect
+        x="480"
+        y="145"
+        width="255"
+        height="245"
+        rx="16"
+        fill="#FFFFFF"
+        stroke="#E2E8F0"
+      />
+
+
+      <rect
+        x="510"
+        y="180"
+        width="130"
+        height="10"
+        rx="5"
+        fill="#CBD5E1"
+      />
+
+
+      <!-- rows -->
+
+      <rect
+        x="510"
+        y="225"
+        width="170"
+        height="26"
+        rx="8"
+        fill="#DBEAFE"
+      />
+
+
+      <rect
+        x="510"
+        y="265"
+        width="145"
+        height="26"
+        rx="8"
+        fill="#DCFCE7"
+      />
+
+
+      <rect
+        x="510"
+        y="305"
+        width="120"
+        height="26"
+        rx="8"
+        fill="#FEF3C7"
+      />
+
+
+      <rect
+        x="510"
+        y="345"
+        width="95"
+        height="26"
+        rx="8"
+        fill="#FEE2E2"
+      />
+
     </svg>
+
+
+    <!-- Real UI labels -->
+
+    <div class="mt-4 grid grid-cols-4 gap-3">
+
+      <div>
+        <p class="text-xs text-text-muted">
+          {{ assets }}
+        </p>
+        <p class="font-semibold text-text">
+          12,480
+        </p>
+      </div>
+
+
+      <div>
+        <p class="text-xs text-text-muted">
+          {{ health }}
+        </p>
+        <p class="font-semibold text-success">
+          96%
+        </p>
+      </div>
+
+
+      <div>
+        <p class="text-xs text-text-muted">
+          {{ workOrders }}
+        </p>
+        <p class="font-semibold text-primary">
+          42
+        </p>
+      </div>
+
+
+      <div>
+        <p class="text-xs text-text-muted">
+         {{ alerts }}
+        </p>
+        <p class="font-semibold text-negative">
+          3
+        </p>
+      </div>
+
+    </div>
+
   </div>
 </template>
