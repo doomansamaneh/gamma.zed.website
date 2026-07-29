@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -41,8 +43,41 @@ html {
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: Inter, 'Segoe UI', Arial, sans-serif;
+  font-family: 'Vazirmatn', Inter, 'Segoe UI', Arial, sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+[dir='rtl'] {
+  text-align: right;
+}
+
+[dir='rtl'] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .sm\:flex-row,
+[dir='rtl'] .md\:flex-row,
+[dir='rtl'] .lg\:flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir='rtl'] .justify-between {
+  justify-content: space-between;
+}
+
+[dir='rtl'] .text-left {
+  text-align: right;
+}
+
+[dir='rtl'] .text-right {
+  text-align: right;
+}
+
+[dir='rtl'] .rounded-full,
+[dir='rtl'] .rounded-lg,
+[dir='rtl'] .rounded-xl,
+[dir='rtl'] .rounded-2xl {
+  direction: rtl;
 }
 
 * {
@@ -110,13 +145,29 @@ footer {
 }
 
 .card-hover {
+  position: relative;
+  overflow: hidden;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.card-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  transition: background-color 180ms ease;
 }
 
 .card-hover:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
   border-color: var(--color-brand);
+}
+
+.card-hover:hover::before {
+  background-color: var(--color-brand);
 }
 
 button,

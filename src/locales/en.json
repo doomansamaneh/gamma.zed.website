@@ -1,0 +1,125 @@
+{
+  "home": {
+    "hero": {
+      "eyebrow": "Enterprise Platform",
+      "title": "ZED Core",
+      "subtitle": "A unified enterprise operations platform for asset visibility, workflow automation, inventory control, and configurable digital execution.",
+      "primaryCta": "Request Demo",
+      "secondaryCta": "Explore Platform",
+      "highlights": [
+        { "label": "Visibility", "value": "Asset intelligence" },
+        { "label": "Automation", "value": "Workflow orchestration" },
+        { "label": "Control", "value": "Inventory & forms" }
+      ]
+    },
+    "stats": [
+      { "label": "Assets Managed", "value": "120K+" },
+      { "label": "Workflow Automation", "value": "94%" },
+      { "label": "Uptime Improvement", "value": "28%" },
+      { "label": "Teams Connected", "value": "40+" }
+    ],
+    "valueProps": {
+      "eyebrow": "Detail",
+      "title": "One platform for operational control",
+      "description": "ZED Core brings asset information, approvals, business rules, inventory signals, and reporting into one governed operating layer.",
+      "items": [
+        { "title": "Asset intelligence", "description": "Track lifecycle, maintenance history, and reliability signals." },
+        { "title": "Workflow orchestration", "description": "Coordinate approvals, routing, and operational actions." },
+        { "title": "Digital forms", "description": "Collect structured information without heavy custom development." },
+        { "title": "Enterprise reporting", "description": "Surface the operational signals that matter to leadership." }
+      ]
+    },
+    "operational": {
+      "eyebrow": "Operational snapshot",
+      "title": "What enterprise teams need",
+      "description": "Reliable delivery, shared visibility, and configurable business logic across high-impact processes.",
+      "items": [
+        { "title": "Unified operations", "description": "One shared foundation for asset, workflow, and inventory decisions." },
+        { "title": "Governance ready", "description": "Audit-friendly, configurable, and built for multi-team coordination." },
+        { "title": "Designed for scale", "description": "Structure operations for growth without breaking the existing model." }
+      ]
+    },
+    "whyZed": {
+      "eyebrow": "Why ZED Core",
+      "title": "Built for enterprise confidence",
+      "description": "ZED Core combines operational visibility, configurable workflows, and trusted governance into one digital operating foundation.",
+      "items": [
+        { "title": "Secure by design", "description": "Governed, auditable, and engineered for enterprise-grade trust." },
+        { "title": "Scalable architecture", "description": "Designed to support growing operational complexity across teams and domains." },
+        { "title": "Connected workflows", "description": "Bring assets, approvals, inventory, and forms into one shared operating system." }
+      ]
+    },
+    "modules": {
+      "eyebrow": "Platform modules",
+      "title": "Core capabilities",
+      "description": "Each module is reusable, configurable, and aligned to the demands of modern enterprise operations.",
+      "items": [
+        {
+          "title": "ZED EAM",
+          "badge": "Enterprise",
+          "description": "Manage the full asset lifecycle with maintenance planning, work orders, inspections, and complete operational history.",
+          "tags": ["Asset Registry", "Maintenance", "Work Orders"]
+        },
+        {
+          "title": "ZED Workflow",
+          "badge": "Automation",
+          "description": "Digitize approvals, business rules, and process orchestration with measurable service-level control.",
+          "tags": ["Approvals", "Rules Engine", "Notifications"]
+        },
+        {
+          "title": "ZED Inventory",
+          "badge": "Operations",
+          "description": "Track stock, movement, spare parts, and transaction history in one operational view.",
+          "tags": ["Stock Management", "Transactions"]
+        },
+        {
+          "title": "ZED Forms",
+          "badge": "Digital",
+          "description": "Capture structured inputs using dynamic forms, templates, and configurable operational data collection.",
+          "tags": ["Form Builder", "Templates"]
+        }
+      ]
+    },
+    "dashboard": {
+      "eyebrow": "Dashboard preview",
+      "title": "Operational visibility for decision-makers",
+      "description": "Real-time operating surfaces help teams monitor asset health, workflow velocity, and inventory confidence in one place.",
+      "cardTitle": "Maintenance Operations",
+      "cardSubtitle": "Work order and asset resilience"
+    },
+    "architecture": {
+      "eyebrow": "Architecture",
+      "title": "One platform. Shared enterprise services.",
+      "description": "ZED Core delivers a connected operating layer across assets, processes, data, and shared governance services.",
+      "diagramTitle": "One Core Platform"
+    },
+    "industries": {
+      "eyebrow": "Industries",
+      "title": "Built for enterprise operations",
+      "description": "The platform supports organizations that need control, visibility, and continuity across mission-critical workflows.",
+      "items": [
+        { "title": "Manufacturing", "description": "Improve uptime, reliability, and maintenance coordination across production lines." },
+        { "title": "Energy", "description": "Support field operations, asset readiness, and compliance-driven reliability workflows." },
+        { "title": "Banking", "description": "Coordinate facility operations, approvals, and service processes with stronger discipline." }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Trust",
+      "title": "Enterprise-ready foundations",
+      "description": "Secure architecture, configuration flexibility, integration readiness, and a disciplined operating model support long-term adoption.",
+      "badges": ["Secure Architecture", "Scalable Platform", "Flexible Configuration", "Integration Ready"]
+    },
+    "actions": {
+      "eyebrow": "Actions",
+      "title": "Start the conversation",
+      "description": "Book a guided demo and discuss how ZED Core can fit your enterprise operating model.",
+      "button": "Request Demo"
+    },
+    "cta": {
+      "title": "Request a Demo",
+      "description": "Book a guided walkthrough to see how ZED Core can support your enterprise operations.",
+      "primary": "Request Demo",
+      "secondary": "Contact Sales"
+    }
+  }
+}

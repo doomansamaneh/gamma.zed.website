@@ -16,29 +16,22 @@ import {
   Badge,
   DashboardMockup,
 } from '../components'
-import enContent from '../locales/en.json'
 import faContent from '../locales/fa.json'
 
-const props = withDefaults(defineProps<{ locale?: 'fa' | 'en' }>(), {
-  locale: 'fa',
-})
-
-const content = computed(() => props.locale === 'fa' ? faContent.home : enContent.home)
+const content = computed(() => faContent.home)
 </script>
 
 <template>
-  <div class="min-h-screen bg-bg text-text" :dir="props.locale === 'fa' ? 'rtl' : 'ltr'">
-    <Navbar :locale="props.locale" />
+  <div class="min-h-screen bg-bg text-text" dir="rtl">
+    <Navbar />
 
     <main class="mx-auto max-w-7xl space-y-8 px-4 py-6 md:px-6 md:py-8 lg:space-y-10">
       <div class="fade-up stagger-1">
         <HeroSection
           :title="content.hero.title"
           :subtitle="content.hero.subtitle"
-          :eyebrow="content.hero.eyebrow"
           :primary-cta="content.hero.primaryCta"
           :secondary-cta="content.hero.secondaryCta"
-          :highlights="content.hero.highlights"
         />
       </div>
 
@@ -110,7 +103,7 @@ const content = computed(() => props.locale === 'fa' ? faContent.home : enConten
         </div>
 
         <div class="grid gap-4 md:grid-cols-2">
-          <ModuleCard v-for="(item) in content.modules.items.slice(2, 4)" :key="item.title" :title="item.title" :badge="item.badge" :description="item.description">
+          <ModuleCard v-for="(item, index) in content.modules.items.slice(2, 4)" :key="item.title" :title="item.title" :badge="item.badge" :description="item.description">
             <div class="flex flex-wrap gap-2">
               <Badge v-for="tag in item.tags" :key="tag" tone="info">{{ tag }}</Badge>
             </div>
