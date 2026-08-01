@@ -9,6 +9,8 @@ const props = withDefaults(defineProps<{
   eyebrow?: string
   primaryCta?: string
   secondaryCta?: string
+  primaryHref?: string
+  secondaryHref?: string
   highlights?: Array<{ label: string; value: string }>
   locale?: 'fa' | 'en'
 }>(), {
@@ -17,6 +19,8 @@ const props = withDefaults(defineProps<{
   eyebrow: 'Enterprise Platform',
   primaryCta: 'Request Demo',
   secondaryCta: 'Explore Platform',
+  primaryHref: '',
+  secondaryHref: '',
   highlights: () => [],
   locale: 'fa',
 })
@@ -35,13 +39,15 @@ const isRtl = computed(() => props.locale === 'fa')
         </div>
 
         <div class="space-y-3">
-          <h1 class="text-4xl font-semibold tracking-tight text-text md:text-5xl lg:text-6xl">{{ title }}</h1>
+          <h1 class="text-3xl font-semibold leading-[1.9] tracking-tight text-text md:text-4xl lg:text-5xl">{{ title }}</h1>
           <p class="max-w-2xl text-base leading-7 text-text-muted md:text-lg">{{ subtitle }}</p>
         </div>
 
         <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap" :class="isRtl ? 'sm:flex-row-reverse' : ''">
-          <Button variant="primary">{{ primaryCta }}</Button>
-          <Button variant="secondary">{{ secondaryCta }}</Button>
+          <Button v-if="primaryHref" variant="primary" :href="primaryHref">{{ primaryCta }}</Button>
+          <Button v-else variant="primary">{{ primaryCta }}</Button>
+          <Button v-if="secondaryHref" variant="secondary" :href="secondaryHref">{{ secondaryCta }}</Button>
+          <Button v-else variant="secondary">{{ secondaryCta }}</Button>
         </div>
 
         <div v-if="highlights.length" class="grid gap-3 sm:grid-cols-3">
@@ -52,9 +58,9 @@ const isRtl = computed(() => props.locale === 'fa')
         </div>
       </div>
 
-      <div class="rounded-[24px] border border-border bg-surface/80 p-3 shadow-sm backdrop-blur sm:p-4">
-        <img :src="heroIllustration" alt="Enterprise asset management illustration" class="h-auto w-full rounded-[18px] object-cover" />
-      </div>
+      <img :src="heroIllustration" alt="Enterprise asset management illustration" class="h-auto w-full rounded-[18px] object-cover" />
+      <!-- <div class="rounded-[24px] border border-border bg-surface/80 p-3 shadow-sm backdrop-blur sm:p-4">
+      </div> -->
     </div>
   </section>
 </template>

@@ -7,27 +7,38 @@ const isMenuOpen = ref(false)
 
 const props = withDefaults(defineProps<{
   locale?: 'fa' | 'en'
+  activePage?: 'home' | 'asset-management' | 'platform' | 'modules' | 'industry' | 'about'
 }>(), {
   locale: 'fa',
+  activePage: 'home',
 })
 
-const navItems = computed(() => props.locale === 'fa'
-  ? [
-      { label: 'خانه', href: '/', active: true },
-      { label: 'پلتفرم', href: '/platform' },
-      { label: 'ماژول‌ها', href: '/modules' },
-      { label: 'راه‌حل‌ها', href: '/solutions' },
-      { label: 'صنایع', href: '/industries' },
-      { label: 'درباره ما', href: '/about' },
-    ]
-  : [
-      { label: 'Home', href: '/', active: true },
-      { label: 'Platform', href: '/platform' },
-      { label: 'Modules', href: '/modules' },
-      { label: 'Solutions', href: '/solutions' },
-      { label: 'Industries', href: '/industries' },
-      { label: 'About', href: '/about' },
-    ])
+const navItems = computed(() => {
+  const homeHref = props.locale === 'fa' ? '/?lang=fa' : '/?lang=en'
+  const modulesHref = props.locale === 'fa' ? '/?page=modules&lang=fa' : '/?page=modules&lang=en'
+  const assetHref = props.locale === 'fa' ? '/?page=asset-management&lang=fa' : '/?page=asset-management&lang=en'
+  const platformHref = props.locale === 'fa' ? '/?page=platform&lang=fa' : '/?page=platform&lang=en'
+  const industryHref = props.locale === 'fa' ? '/?page=industry&lang=fa' : '/?page=industry&lang=en'
+  const aboutHref = props.locale === 'fa' ? '/?page=about&lang=fa' : '/?page=about&lang=en'
+
+  return props.locale === 'fa'
+    ? [
+        { label: 'خانه', href: homeHref, active: props.activePage === 'home' },
+        { label: 'پلتفرم', href: platformHref, active: props.activePage === 'platform' },
+        { label: 'ماژول‌ها', href: modulesHref, active: props.activePage === 'modules' },
+        { label: 'راه‌حل‌ها', href: assetHref },
+        { label: 'صنایع', href: industryHref, active: props.activePage === 'industry' },
+        { label: 'درباره ما', href: aboutHref, active: props.activePage === 'about' },
+      ]
+    : [
+        { label: 'Home', href: homeHref, active: props.activePage === 'home' },
+        { label: 'Platform', href: platformHref, active: props.activePage === 'platform' },
+        { label: 'Modules', href: modulesHref, active: props.activePage === 'modules' },
+        { label: 'Solutions', href: assetHref },
+        { label: 'Industries', href: industryHref, active: props.activePage === 'industry' },
+        { label: 'About', href: aboutHref, active: props.activePage === 'about' },
+      ]
+})
 
 const localeLabel = computed(() => props.locale === 'fa' ? 'English' : 'فارسی')
 const localeHref = computed(() => props.locale === 'fa' ? '/?lang=en' : '/?lang=fa')
@@ -40,7 +51,7 @@ const demoText = computed(() => props.locale === 'fa' ? 'درخواست دمو' 
     <div class="mx-auto max-w-7xl px-4 py-3 md:px-6">
       <div class="flex items-center justify-between gap-3" :class="props.locale === 'fa' ? 'flex-row-reverse' : ''">
         <div class="flex items-center gap-3" :class="props.locale === 'fa' ? 'flex-row-reverse' : ''">
-          <a href="/" class="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border/70 bg-surface shadow-sm transition hover:scale-[1.02] md:h-12 md:w-12">
+          <a href="/" class="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden bg-surface_shadow-sm transition hover:scale-[1.02] md:h-12 md:w-12">
             <img :src="zedLogo" alt="ZED logo" class="h-full w-full object-contain" />
           </a>
           <!-- <div class="min-w-0">

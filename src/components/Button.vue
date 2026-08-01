@@ -4,11 +4,13 @@ withDefaults(defineProps<{
   size?: 'sm' | 'md' | 'lg'
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
+  href?: string
 }>(), {
   variant: 'primary',
   size: 'md',
   disabled: false,
   type: 'button',
+  href: '',
 })
 
 const variantClasses = {
@@ -26,7 +28,17 @@ const sizeClasses = {
 </script>
 
 <template>
+  <a
+    v-if="href"
+    :href="href"
+    class="inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand/40"
+    :class="[variantClasses[variant], sizeClasses[size]]"
+  >
+    <slot />
+  </a>
+
   <button
+    v-else
     :type="type"
     :disabled="disabled"
     class="inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand/40 disabled:cursor-not-allowed disabled:opacity-50"
